@@ -786,73 +786,73 @@
 <!-- MUSIC -->
 <section id="music">
   <div class="section-label">// 02 — Compositions</div>
-  <h2 class="section-title">LES<br>TRACKS</h2>
+  <h2 class="section-title">MES<br>TRACKS</h2>
 
   <div class="tracks-grid" id="trackList">
 
     <div class="track-item" onclick="playTrack(this, 0)">
       <div class="track-num">01</div>
       <div class="track-info">
-        <div class="track-title">DARK MATTER</div>
-        <div class="track-meta">2024 · Trap · 140 BPM</div>
+        <div class="track-title">BEAT 01</div>
+        <div class="track-meta">2026 · Melodic Trap · 123 BPM</div>
       </div>
       <div class="track-tags">
+        <span class="tag">Melodic</span>
         <span class="tag">Trap</span>
-        <span class="tag">Dark</span>
       </div>
-      <div class="track-duration">2:48</div>
+      <div class="track-duration">—:——</div>
     </div>
 
     <div class="track-item" onclick="playTrack(this, 1)">
       <div class="track-num">02</div>
       <div class="track-info">
-        <div class="track-title">NUIT FROIDE</div>
-        <div class="track-meta">2024 · Melodic Trap · 145 BPM</div>
+        <div class="track-title">BEAT 02</div>
+        <div class="track-meta">2026 · Melodic Trap · 122 BPM</div>
       </div>
       <div class="track-tags">
-        <span class="tag">Mélo</span>
-        <span class="tag">Vibes</span>
+        <span class="tag">Melodic</span>
+        <span class="tag">Trap</span>
       </div>
-      <div class="track-duration">3:12</div>
+      <div class="track-duration">—:——</div>
     </div>
 
     <div class="track-item" onclick="playTrack(this, 2)">
       <div class="track-num">03</div>
       <div class="track-info">
-        <div class="track-title">808 SÉQUENCE</div>
-        <div class="track-meta">2024 · Hard Trap · 150 BPM</div>
+        <div class="track-title">BEAT 03</div>
+        <div class="track-meta">2026 · Melodic Trap · 118 BPM</div>
       </div>
       <div class="track-tags">
-        <span class="tag">Hard</span>
-        <span class="tag">808</span>
+        <span class="tag">Melodic</span>
+        <span class="tag">Trap</span>
       </div>
-      <div class="track-duration">2:55</div>
+      <div class="track-duration">—:——</div>
     </div>
 
     <div class="track-item" onclick="playTrack(this, 3)">
       <div class="track-num">04</div>
       <div class="track-info">
-        <div class="track-title">SHADOW DRIVE</div>
-        <div class="track-meta">2023 · Hip-Hop · 90 BPM</div>
+        <div class="track-title">BEAT 04</div>
+        <div class="track-meta">2026 · Melodic Trap · 164 BPM</div>
       </div>
       <div class="track-tags">
-        <span class="tag">HipHop</span>
-        <span class="tag">Boom Bap</span>
+        <span class="tag">Melodic</span>
+        <span class="tag">Trap</span>
       </div>
-      <div class="track-duration">3:34</div>
+      <div class="track-duration">—:——</div>
     </div>
 
     <div class="track-item" onclick="playTrack(this, 4)">
       <div class="track-num">05</div>
       <div class="track-info">
-        <div class="track-title">STATIC CITY</div>
-        <div class="track-meta">2023 · Drill · 140 BPM</div>
+        <div class="track-title">BEAT 05</div>
+        <div class="track-meta">2026 · Melodic Trap · 120 BPM</div>
       </div>
       <div class="track-tags">
-        <span class="tag">Drill</span>
-        <span class="tag">UK</span>
+        <span class="tag">Melodic</span>
+        <span class="tag">Trap</span>
       </div>
-      <div class="track-duration">2:40</div>
+      <div class="track-duration">—:——</div>
     </div>
 
   </div>
@@ -1032,11 +1032,11 @@ window.addEventListener('scroll', () => {
 // 🎵 Pour ajouter vos vraies musiques, remplacez "" par le chemin vers vos fichiers audio
 // Exemple: src: "audio/dark-matter.mp3"
 const tracks = [
-  { title: "DARK MATTER",   meta: "2026 · Trap · 140 BPM",         src: "" },
-  { title: "NUIT FROIDE",   meta: "2026 · Melodic Trap · 145 BPM", src: "" },
-  { title: "808 SÉQUENCE",  meta: "2026 · Hard Trap · 150 BPM",    src: "" },
-  { title: "SHADOW DRIVE",  meta: "2026 · Hip-Hop · 90 BPM",       src: "" },
-  { title: "STATIC CITY",   meta: "2026 · Drill · 140 BPM",        src: "" },
+  { title: "BEAT 01", meta: "2026 · Melodic Trap · 123 BPM", src: "audio/beat-01.mp3" },
+  { title: "BEAT 02", meta: "2026 · Melodic Trap · 122 BPM", src: "audio/beat-02.mp3" },
+  { title: "BEAT 03", meta: "2026 · Melodic Trap · 118 BPM", src: "audio/beat-03.mp3" },
+  { title: "BEAT 04", meta: "2026 · Melodic Trap · 164 BPM", src: "audio/beat-04.mp3" },
+  { title: "BEAT 05", meta: "2026 · Melodic Trap · 120 BPM", src: "audio/beat-05.mp3" },
 ];
 
 const audio      = document.getElementById('audioEl');
@@ -1136,7 +1136,16 @@ document.querySelectorAll('.track-item, .gallery-item, .stat-box').forEach(el =>
   io.observe(el);
 });
 
-// ── PASSIVE TOUCH LISTENERS (scroll plus fluide) ──
+// ── AUTO-LOAD DURÉES ──
+// Charge la durée réelle de chaque fichier audio au chargement de la page
+tracks.forEach((t, idx) => {
+  const tmp = new Audio();
+  tmp.src = t.src;
+  tmp.addEventListener('loadedmetadata', () => {
+    const dur = trackItems[idx].querySelector('.track-duration');
+    if (dur) dur.textContent = fmt(tmp.duration);
+  });
+});
 document.addEventListener('touchstart', () => {}, { passive: true });
 document.addEventListener('touchmove',  () => {}, { passive: true });
 
