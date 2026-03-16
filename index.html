@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ARTISTE — Portfolio Musical</title>
+<title>PROD_ADM16 — Portfolio Beatmaker</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Mono:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
@@ -24,7 +24,11 @@
 
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-  html { scroll-behavior: smooth; }
+  html {
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    scroll-padding-top: 70px;
+  }
 
   body {
     background: var(--bg);
@@ -34,6 +38,7 @@
     line-height: 1.6;
     cursor: none;
     overflow-x: hidden;
+    overscroll-behavior-x: none;
   }
 
   /* ── CURSOR ── */
@@ -555,6 +560,27 @@
   ::-webkit-scrollbar-track { background: var(--bg); }
   ::-webkit-scrollbar-thumb { background: var(--muted); }
 
+  /* ── MOBILE TOUCH OPTIMISATIONS ── */
+  /* Supprime le flash bleu au tap sur Android/iOS */
+  * { -webkit-tap-highlight-color: transparent; }
+
+  /* Empêche le zoom auto sur les inputs iOS (min 16px) */
+  input, textarea, select {
+    font-size: 16px !important;
+  }
+
+  /* Cibles tactiles minimum 44px (Apple HIG) */
+  .btn, .ctrl-btn, .play-btn, .social-link,
+  .nav-hamburger, #mobile-menu a, .track-item {
+    min-height: 44px;
+  }
+
+  /* Scroll fluide dans les conteneurs scrollables */
+  .tracks-grid {
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior: contain;
+  }
+
   /* ── RESPONSIVE ── */
   @media (max-width: 768px) {
     /* cursor off on touch */
@@ -689,7 +715,7 @@
 
 <!-- NAV -->
 <nav id="nav">
-  <div class="nav-logo">VOTRE_NOM</div>
+  <div class="nav-logo">PROD_ADM16</div>
   <ul class="nav-links">
     <li><a href="#about">À propos</a></li>
     <li><a href="#music">Musique</a></li>
@@ -713,9 +739,9 @@
 <!-- HERO -->
 <section id="hero">
   <div class="hero-bg-text">BEATS</div>
-  <div class="hero-tag">// Producteur · Compositeur · Chalon-sur-Saône</div>
-  <h1 class="hero-title">VOTRE<br><span>NOM</span></h1>
-  <p class="hero-sub">Compositions trap & hip-hop — des sonorités brutes construites pour marquer les esprits.</p>
+  <div class="hero-tag">// Beatmaker · Compositeur · France</div>
+  <h1 class="hero-title">PROD<br><span>ADM16</span></h1>
+  <p class="hero-sub">Beats trap & hip-hop taillés depuis la France — plus de 5 ans à sculpter des sonorités qui frappent fort et restent en tête.</p>
   <div class="hero-cta">
     <a href="#music" class="btn">Écouter les tracks</a>
     <a href="#contact" class="btn ghost">Me contacter</a>
@@ -737,21 +763,20 @@
       </div>
     </div>
     <div class="about-text">
-      <p>Producteur indépendant basé à Chalon-sur-Saône, je compose des instrumentales trap et hip-hop depuis plusieurs années. Mon son mêle 808 lourds, mélodies planantes et samples travaillés.</p>
-      <p>Chaque track est pensée comme une atmosphère — un état d'esprit à traverser. Disponible pour des collaborations, placements de beat et projets artistiques.</p>
-      <p>Remplacez ce texte par votre propre biographie.</p>
+      <p>Beatmaker indépendant basé en France, je forge des instrumentales trap et hip-hop depuis plus de 5 ans. Mon univers sonore : des 808 qui tremblent, des mélodies qui planent, des atmosphères qui marquent.</p>
+      <p>Chaque beat est une intention — une énergie brute mise en forme. Que tu cherches un son pour poser, pour un projet ou pour une collab, je suis disponible.</p>
       <div class="about-stats">
         <div class="stat-box">
-          <div class="stat-num">50+</div>
-          <div class="stat-label">Compositions</div>
-        </div>
-        <div class="stat-box">
-          <div class="stat-num">3+</div>
+          <div class="stat-num">5+</div>
           <div class="stat-label">Années</div>
         </div>
         <div class="stat-box">
+          <div class="stat-num">100%</div>
+          <div class="stat-label">Indépendant</div>
+        </div>
+        <div class="stat-box">
           <div class="stat-num">∞</div>
-          <div class="stat-label">Projets</div>
+          <div class="stat-label">Créativité</div>
         </div>
       </div>
     </div>
@@ -832,9 +857,6 @@
 
   </div>
 
-  <p style="margin-top:2rem; font-family:var(--mono); font-size:.7rem; color:var(--text-dim); letter-spacing:.1em;">
-    ↑ REMPLACEZ LES TRACKS PAR VOS FICHIERS AUDIO (src dans le JS) — PLACEHOLDER DÉMO
-  </p>
 </section>
 
 <!-- VISUALS -->
@@ -951,7 +973,6 @@
   <div class="socials">
     <span style="font-family:var(--mono);font-size:.65rem;letter-spacing:.2em;color:var(--text-dim);text-transform:uppercase;">Suivre :</span>
     <a href="#" class="social-link">Instagram</a>
-    <a href="#" class="social-link">SoundCloud</a>
     <a href="#" class="social-link">YouTube</a>
     <a href="#" class="social-link">Beatstars</a>
   </div>
@@ -959,8 +980,7 @@
 
 <!-- FOOTER -->
 <footer>
-  <p>© 2026 <span>VOTRE_NOM</span> — Tous droits réservés</p>
-  <p>Fait avec <span>◆</span> à Chalon-sur-Saône</p>
+  <p>© 2026 <span>PROD_ADM16</span> — Tous droits réservés</p>
 </footer>
 
 <!-- PLAYER BAR -->
@@ -1097,21 +1117,28 @@ function fmt(s) {
 }
 
 // ── INTERSECTION OBSERVER (fade in) ──
+// rootMargin négatif = déclenche un peu avant sur mobile
 const io = new IntersectionObserver(entries => {
   entries.forEach(e => {
     if (e.isIntersecting) {
       e.target.style.opacity = '1';
       e.target.style.transform = 'translateY(0)';
+      io.unobserve(e.target); // stop observer après animation (perf)
     }
   });
-}, { threshold: 0.1 });
+}, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
 
 document.querySelectorAll('.track-item, .gallery-item, .stat-box').forEach(el => {
   el.style.opacity = '0';
   el.style.transform = 'translateY(20px)';
-  el.style.transition = 'opacity .5s ease, transform .5s ease';
+  el.style.transition = 'opacity .45s ease, transform .45s ease';
+  el.style.willChange = 'opacity, transform'; // hint GPU
   io.observe(el);
 });
+
+// ── PASSIVE TOUCH LISTENERS (scroll plus fluide) ──
+document.addEventListener('touchstart', () => {}, { passive: true });
+document.addEventListener('touchmove',  () => {}, { passive: true });
 
 // ── MOBILE MENU ──
 function openMenu() {
